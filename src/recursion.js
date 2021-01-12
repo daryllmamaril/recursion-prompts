@@ -20,15 +20,21 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-  let total = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (i === array.length - 1) {
-      total += array[i];
-    } else {
-      total += array[i] + sum(array[i + 1]);
-    }
+  // let total = 0;
+  // for (let i = 0; i < array.length; i++) {
+  //   if (i === array.length - 1) {
+  //     total += array[i];
+  //   } else {
+  //     total += array[i] + sum(array[i + 1]);
+  //   }
+  // }
+  // return total;
+  array = array.slice();
+  if (array.length === 0){
+    return 0;
+  } else {
+    return array.shift() + sum(array);
   }
-  return total;
 };
 
 
@@ -149,7 +155,15 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string === '') {
+    return ''
+  }
+  return reverse(string.substring(1)) + string[0];
+
+  //return string ? reverse(string.substr(1)) + string[0] : string;
+
 };
+
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
