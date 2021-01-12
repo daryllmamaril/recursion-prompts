@@ -29,11 +29,11 @@ var sum = function(array) {
   //   }
   // }
   // return total;
-  array = array.slice();
-  if (array.length === 0){
+  let arrayCopy = array.slice();
+  if (arrayCopy.length === 0){
     return 0;
   } else {
-    return array.shift() + sum(array);
+    return arrayCopy.shift() + sum(arrayCopy);
   }
 };
 
@@ -174,7 +174,9 @@ var palindrome = function(string) {
   if (string[0] !== string[string.length - 1]) {
     return false;
   } else {
-    return palindrome(string.substring(1, string.length - 1))
+    let str = string.substring(1, string.length - 1)
+    let lowStr = str.toLowerCase()
+    return palindrome(lowStr.trim())
   }
 };
 
